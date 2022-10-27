@@ -1,0 +1,1 @@
+export const getPopularMovies = (state: { popularMovies: any; }) => state.popularMovies;
