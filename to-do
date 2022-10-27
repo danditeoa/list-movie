@@ -1,0 +1,5 @@
+- lista de filmes populares
+- paginação
+- clica no card e vai para detalhes do filme (title, description, rating, etc)
+- header com search(opcional)
+- debounce 500ms botão search - validação tooltip
