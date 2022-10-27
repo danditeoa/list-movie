@@ -1,3 +1,4 @@
 import { createAction } from "@reduxjs/toolkit";
+import { PaginatedMovie } from "../../models/paginatedMovie.model";
 
-export const addPopular = createAction<any>("popular/add");
+export const addPopular = createAction<PaginatedMovie>("popular/add");
