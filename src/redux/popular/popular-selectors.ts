@@ -1,1 +1,1 @@
-export const getPopularMovies = (state: { popularMovies: any; }) => state.popularMovies;
+export const getPopularMoviesSelector = (state: { popularMovies: any; }) => state.popularMovies;
