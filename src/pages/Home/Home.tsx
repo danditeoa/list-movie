@@ -13,17 +13,22 @@ const Home = () => {
     // setLoading(true)
     const response = await fetchPopularMovies(page)
     setData(response.data)
-dispatch(addPopular(response.data))
+    dispatch(addPopular(response.data))
     console.log(response)
     // setLoading(false)
   }
-//   const popular = useSelector(getPopularMoviesSelector);
-// console.log(popular)
+  const popular = useSelector(getPopularMoviesSelector);
 useEffect(()=> {
 fetchData(page)
 },[page])
   return (
-    <div>works 
+    <div>works
+      <div>
+        {popular.page}
+      </div>
+      <div>
+        {popular && popular.results.map(movie => <div>{movie.title}</div>)}
+      </div>
       
     </div>
   );
