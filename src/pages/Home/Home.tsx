@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardList from "../../components/CardList/CardList";
 import Pagination from "../../components/Pagination";
+import Searchbar from "../../components/Searchbar/Searchbar";
 import { PaginatedMovie } from "../../models/paginatedMovie.model";
 import { addPopular } from "../../redux/popular/popular-actions";
 import { getPopularMoviesSelector } from "../../redux/popular/popular-selectors";
@@ -36,6 +37,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1>Popular Movies</h1>
+      <Searchbar />
       <Pagination
         moviesPerPage={20}
         totalPages={15}
