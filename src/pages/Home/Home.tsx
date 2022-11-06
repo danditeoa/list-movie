@@ -1,7 +1,8 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CardMovie from "../../components/cardMovie/CardMovie";
+import CardList from "../../components/CardList/CardList";
 import Pagination from "../../components/Pagination";
+import { PaginatedMovie } from "../../models/paginatedMovie.model";
 import { addPopular } from "../../redux/popular/popular-actions";
 import { getPopularMoviesSelector } from "../../redux/popular/popular-selectors";
 import { fetchPopularMovies } from "../../services/moviesAPI";
@@ -9,7 +10,7 @@ import "./Home.scss";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [data, setData] = useState()
+  const [data, setData] = useState<PaginatedMovie[]>()
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const fetchData = async (page: number) => {
@@ -25,42 +26,29 @@ const Home = () => {
     fetchData(page)
   },[page])
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(1);
-  // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = popular.results.slice(indexOfFirstPost, indexOfLastPost);
+  const [moviesPerPage] = useState(1);
 
   // Change page
-  const paginate = (pageNumber: React.SetStateAction<number>) => setCurrentPage(pageNumber);
-  let PageSize = 5;
+  const paginate = (pageNumber: React.SetStateAction<number> = 1) => setPage(pageNumber);
+  const moviesList = useSelector(getPopularMoviesSelector);
 
-  const currentListData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const key = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return popular.results.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
   if(loading){
     return <div><h1>Loading ...</h1></div>
   }
   return (
-    <div>works
+    <div className="home-container">
        <div>
         {popular.page}
       </div>
-      <div>
-        {currentListData.map(movie =><CardMovie movie={movie} />)}
-      </div> 
-      <div className="mt-5 mb-3">
-        <b>Current Page:</b><span className="ml-2">{currentPage}</span>
-      </div>
-<Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={popular.results.length}
+      <Pagination
+        moviesPerPage={moviesPerPage}
+        totalMovies={popular.results.length}
         paginate={paginate}
       />
+      <CardList list={moviesList.results}/>
+      <div>
+        <b>Current Page:</b><span>{page}</span>
+      </div>
     </div>
   );
 };
