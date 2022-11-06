@@ -14,7 +14,7 @@ const imageURL = "https://image.tmdb.org/t/p/w300/";
           {movie.title}
         </h2>
         <p>
-          language: {movie.original_language}
+          Language: {movie.original_language}
         </p>
     </div>
   );
