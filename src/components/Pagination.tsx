@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 
-const Pagination = ({ moviesPerPage, totalMovies, paginate }:any) => {
-  const pageNumbers = [];
+const Pagination = ({ currentPage, totalPages, paginate }:any) => {
+  const [pageNumbers, setPageNumbers] = useState<number[]>([]);
 
-  for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  useEffect(() => {
+    for (let i = 1; i <= totalPages; i++) {
+      setPageNumbers(prev => [...prev, i]);
+    }
+  },[]);
 
+ // const handleNextPage =
   return (
     <ul className="pagination-container">
       {pageNumbers.map(page => (
-        <li key={page} className='page-item'>
-          <span onClick={() => paginate(page)} className='page'>
+        <li key={page} className="page-item">
+          <span onClick={() => paginate(page)} className={`page-number ${page === currentPage ? 'page-number-active': ''}`}>
             {page}
           </span>
         </li>

@@ -12,7 +12,7 @@ const CardList = ({list}: CardListProp) => {
   }
 
   return (
-      <div className="container">
+      <div className="list-container">
         {list.map(movie =><CardMovie key={movie.id} movie={movie} />)}
       </div> 
   );

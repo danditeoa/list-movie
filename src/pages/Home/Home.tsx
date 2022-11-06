@@ -26,8 +26,6 @@ const Home = () => {
     fetchData(page)
   },[page])
 
-  const [moviesPerPage] = useState(1);
-
   // Change page
   const paginate = (pageNumber: React.SetStateAction<number> = 1) => setPage(pageNumber);
   const moviesList = useSelector(getPopularMoviesSelector);
@@ -37,13 +35,12 @@ const Home = () => {
   }
   return (
     <div className="home-container">
-       <div>
-        {popular.page}
-      </div>
+      <h1>Popular Movies</h1>
       <Pagination
-        moviesPerPage={moviesPerPage}
-        totalMovies={popular.results.length}
+        moviesPerPage={20}
+        totalPages={15}
         paginate={paginate}
+        currentPage={page}
       />
       <CardList list={moviesList.results}/>
       <div>
