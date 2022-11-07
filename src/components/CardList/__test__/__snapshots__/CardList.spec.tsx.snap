@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardList /> matches snapshot 1`] = `
+<div>
+  <div
+    class="list-container"
+  >
+    <div
+      class="card-container"
+    >
+      <img
+        alt="image backdrop"
+        src="https://image.tmdb.org/t/p/w300//y5Z0WesTjvn59jP6yo459eUsbli.jpg"
+      />
+      <h2>
+        Terrifier 2
+      </h2>
+      <p>
+        <strong>
+          2022
+        </strong>
+      </p>
+    </div>
+    <div
+      class="card-container"
+    >
+      <img
+        alt="image backdrop"
+        src="https://image.tmdb.org/t/p/w300//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg"
+      />
+      <h2>
+        Black Adam
+      </h2>
+      <p>
+        <strong>
+          2022
+        </strong>
+      </p>
+    </div>
+    <div
+      class="card-container"
+    >
+      <img
+        alt="image backdrop"
+        src="https://image.tmdb.org/t/p/w300//pGx6O6IwqADOsgmqWzPysmWnOyr.jpg"
+      />
+      <h2>
+        Blade of the 47 Ronin
+      </h2>
+      <p>
+        <strong>
+          2022
+        </strong>
+      </p>
+    </div>
+    <div
+      class="card-container"
+    >
+      <img
+        alt="image backdrop"
+        src="https://image.tmdb.org/t/p/w300//naNXYdBzTEb1KwOdi1RbBkM9Zv1.jpg"
+      />
+      <h2>
+        Terrifier
+      </h2>
+      <p>
+        <strong>
+          2016
+        </strong>
+      </p>
+    </div>
+    <div
+      class="card-container"
+    >
+      <img
+        alt="image backdrop"
+        src="https://image.tmdb.org/t/p/w300//b2FxWOxe9K7ZZ1uaPOze2RJ1ajq.jpg"
+      />
+      <h2>
+        MexZombies
+      </h2>
+      <p>
+        <strong>
+          2022
+        </strong>
+      </p>
+    </div>
+    <div
+      class="card-container"
+    >
+      <img
+        alt="image backdrop"
+        src="https://image.tmdb.org/t/p/w300//1DBDwevWS8OhiT3wqqlW7KGPd6m.jpg"
+      />
+      <h2>
+        Fall
+      </h2>
+      <p>
+        <strong>
+          2022
+        </strong>
+      </p>
+    </div>
+  </div>
+</div>
+`;

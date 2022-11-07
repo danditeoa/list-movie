@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardMovie /> matches snapshot 1`] = `
+<div>
+  <div
+    class="card-container"
+  >
+    <img
+      alt="image backdrop"
+      src="https://image.tmdb.org/t/p/w300//y5Z0WesTjvn59jP6yo459eUsbli.jpg"
+    />
+    <h2>
+      Terrifier 2
+    </h2>
+    <p>
+      <strong>
+        2022
+      </strong>
+    </p>
+  </div>
+</div>
+`;

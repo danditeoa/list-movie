@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Searchbar /> matches snapshot 1`] = `
+<div>
+  <div
+    class="searchbar-container"
+  >
+    <input
+      placeholder="search for a movie"
+      type="text"
+      value=""
+    />
+    <button>
+      Search
+    </button>
+  </div>
+</div>
+`;
