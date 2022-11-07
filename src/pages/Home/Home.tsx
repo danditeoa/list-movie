@@ -1,38 +1,51 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import CardList from "../../components/CardList/CardList";
-import Pagination from "../../components/Pagination";
-import Searchbar from "../../components/Searchbar/Searchbar";
-import { PaginatedMovie } from "../../models/paginatedMovie.model";
-import { addPopular } from "../../redux/popular/popular-actions";
-import { getPopularMoviesSelector } from "../../redux/popular/popular-selectors";
-import { fetchPopularMovies } from "../../services/moviesAPI";
-import "./Home.scss";
+import React, { useCallback, useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import CardList from "../../components/CardList/CardList"
+import Pagination from "../../components/Pagination"
+import Searchbar from "../../components/Searchbar/Searchbar"
+import {
+  getPopularMoviesSelector,
+  getPopularMoviesStatusSelector,
+} from "../../redux/popular/popular-selectors"
+import { popularMoviesThunk } from "../../redux/popular/popular-thunk"
+import { AppDispatch } from "../../redux/store"
+import { fetchPopularMovies } from "../../services/moviesAPI"
+import "./Home.scss"
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const [data, setData] = useState<PaginatedMovie[]>()
+  const dispatch = useDispatch<AppDispatch>()
   const [page, setPage] = useState(1)
-  const [loading, setLoading] = useState(false)
-  const fetchData = async (page: number) => {
-    setLoading(true)
-    const response = await fetchPopularMovies(page)
-    setData(response.data)
-    dispatch(addPopular(response.data))
-    console.log(response)
-    setLoading(false)
-  }
-  const popular = useSelector(getPopularMoviesSelector);
-  useEffect(()=> {
+
+  const fetchData = useCallback(
+    async (page: number) => {
+      dispatch(popularMoviesThunk(page))
+    },
+    [dispatch]
+  )
+  useEffect(() => {
+    console.log(page)
     fetchData(page)
-  },[page])
+  }, [page, fetchData])
 
   // Change page
-  const paginate = (pageNumber: React.SetStateAction<number> = 1) => setPage(pageNumber);
-  const moviesList = useSelector(getPopularMoviesSelector);
+  const paginate = (pageNumber: React.SetStateAction<number> = 1) =>
+    setPage(pageNumber)
+  const moviesList = useSelector(getPopularMoviesSelector)
+  const moviesListStatus = useSelector(getPopularMoviesStatusSelector)
 
-  if(loading){
-    return <div><h1>Loading ...</h1></div>
+  if (moviesListStatus === "loading") {
+    return (
+      <div>
+        <h1>Loading ...</h1>
+      </div>
+    )
+  }
+  if (moviesListStatus === "failed") {
+    return (
+      <div>
+        <h1>Error fetching movies ...</h1>
+      </div>
+    )
   }
   return (
     <div className="home-container">
@@ -44,12 +57,13 @@ const Home = () => {
         paginate={paginate}
         currentPage={page}
       />
-      <CardList list={moviesList.results}/>
+      <CardList list={moviesList.results} />
       <div>
-        <b>Current Page:</b><span>{page}</span>
+        <b>Current Page:</b>
+        <span>{page}</span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

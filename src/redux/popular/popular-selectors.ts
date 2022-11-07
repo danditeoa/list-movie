@@ -1,3 +1,7 @@
-import { PaginatedMovie } from "../../models/paginatedMovie.model";
+import { RootState } from "../store"
 
-export const getPopularMoviesSelector = (state: { popularMovies: PaginatedMovie; }) => state.popularMovies;
+export const getPopularMoviesSelector = (state: RootState) =>
+  state.popularMovies.value
+
+export const getPopularMoviesStatusSelector = (state: RootState) =>
+  state.popularMovies.status

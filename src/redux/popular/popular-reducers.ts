@@ -1,14 +1,31 @@
-import { createReducer, PayloadAction } from "@reduxjs/toolkit";
-import { PaginatedMovie } from "../../models/paginatedMovie.model";
-import { addPopular } from "./popular-actions";
+import { createReducer } from "@reduxjs/toolkit"
+import { PaginatedMovie } from "../../models/paginatedMovie.model"
+import { popularMoviesThunk } from "./popular-thunk"
 
-const initialState: PaginatedMovie = {
-  page: 0,
-  results: [],
-  total_pages: 0,
-  total_results: 0
-} 
+export interface PopularMoviesState {
+  status: "idle" | "loading" | "failed"
+  value: PaginatedMovie
+}
 
-export const popularMovies = createReducer(initialState, {
-  [addPopular.type]: (state, action: PayloadAction<PaginatedMovie>) => Object.assign(state, action.payload),
+const initialState: PopularMoviesState = {
+  status: "idle",
+  value: {
+    page: 0,
+    results: [],
+    total_pages: 0,
+    total_results: 0,
+  },
+}
+
+export const popularMovies = createReducer(initialState, (builder) => {
+  builder
+    .addCase(popularMoviesThunk.pending, (state) => {
+      state.status = "loading"
+    })
+    .addCase(popularMoviesThunk.fulfilled, (state, action) => {
+      state.status = "idle"
+      console.log(action.payload)
+      state.value = Object.assign(state.value, action.payload)
+    })
+    .addDefaultCase((state, action) => {})
 })
