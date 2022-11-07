@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# List Popular Movies React/redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+## O que é
 
-## Available Scripts
+Projeto criado usando [Create React App](https://github.com/facebook/create-react-app), usando o [Redux](https://redux.js.org/) e [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
-In the project directory, you can run:
+## Instalação
 
-### `npm start`
+* Você deve ter o <a href="https://nodejs.org/en/">Nodejs</a> instalado em sua maquína
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Após clonar o repositório e entrar na pasta, instale os pacotes com o comando:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm i
+# ou
+npm install
+```
+
+## Rodar
+
+* Rode o projeto utilizando os seguinte comando:
+
+```bash
+npm start
+```
+
+
+Após a compilação, o App estará disponível para acesso
+pelo navegador em http://localhost:3000/
+
+## Testes
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contribuindo
 
-### `npm run build`
+Faça um fork do projeto. Siga os passos de instalação. Crie uma branch a partir da branch main!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Cheque as issues abertas ou abra uma <a href=https://github.com/danditeoa/picpay-desafio-frontend/issues> aqui</a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## To do
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Por conta do tempo, optei por implementar o mínimo viável da aplicação, sem deixar de possibilitar o desenvolvimento das tarefas pendentes.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Implementar testes
+* Revisar acessibilidade
+* Testar em diferentes sistemas e navegadores
+* Escrever testes
+* Refatorar SCSS
+* Implementar pagina de detalhes
