@@ -2,7 +2,7 @@
 
 ## O que é
 
-Projeto criado usando [Create React App](https://github.com/facebook/create-react-app), usando o [Redux](https://redux.js.org/) e [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Projeto criado usando [Create React App](https://github.com/facebook/create-react-app), usando o [Redux](https://redux.js.org/) e [Redux Toolkit](https://redux-toolkit.js.org/) TS template. Utiliza a os dados da api [The Movie db](https://www.themoviedb.org/) que lista filmes, para serem paginados e filtrados.
 
 ## Instalação
 
